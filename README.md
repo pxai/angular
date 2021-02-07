@@ -13,3 +13,10 @@ cd my-app
 ng serve
 ```
 
+## Projects
+
+### Hello project with unit/client tests
+```
+cd hello
+npm install
+```
