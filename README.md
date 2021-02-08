@@ -19,4 +19,9 @@ ng serve
 ```
 cd hello
 npm install
+ng serve
+ng serve --port 4000
 ```
+
+Default
+http://localhost:4200
