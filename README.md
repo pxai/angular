@@ -23,5 +23,10 @@ ng serve
 ng serve --port 4000
 ```
 
+# Then add components like
+```
+ng generate component my-component
+```
+
 Default
 http://localhost:4200
