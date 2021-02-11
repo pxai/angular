@@ -1,9 +1,11 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
+const ci = process.env.CI || false;
 
 module.exports = function (config) {
   config.set({
     basePath: '',
+    singleRun: ci,
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
@@ -37,7 +39,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['ChromeHeadless'], // browsers: ['Chrome'],
     singleRun: false,
     restartOnFileChange: true
   });
