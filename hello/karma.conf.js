@@ -1,11 +1,11 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
-const ci = process.env.CI || false;
+const singleRun = process.env.CI || false;
 
 module.exports = function (config) {
   config.set({
     basePath: '',
-    singleRun: ci,
+    singleRun: true,
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
