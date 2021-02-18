@@ -13,4 +13,8 @@ export class GreetComponent implements OnInit {
   ngOnInit(): void {
     this._greet = this.greet;
   }
+
+  say(): void {
+    console.log("Say something");
+  }
  }
