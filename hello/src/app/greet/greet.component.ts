@@ -8,13 +8,19 @@ import { Component, OnInit, Input } from '@angular/core';
 export class GreetComponent implements OnInit {
   @Input() greet: any;
   private _greet: string = "";
+  private _count: number = 0;
+
   constructor() { }
 
   ngOnInit(): void {
     this._greet = this.greet;
   }
 
-  say(): void {
-    console.log("Say something");
+  get count () {
+      return this._count;
+  }
+
+  say(what: string): void {
+    console.log("Say something: ", what);
   }
  }
