@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { SayService } from "../say.service";
 
 @Component({
   selector: 'greet',
@@ -10,7 +11,7 @@ export class GreetComponent implements OnInit {
   private _greet: string = "";
   private _count: number = 0;
 
-  constructor() { }
+  constructor(private sayService: SayService) { }
 
   ngOnInit(): void {
     this._greet = this.greet;
@@ -22,5 +23,7 @@ export class GreetComponent implements OnInit {
 
   say(what: string): void {
     console.log("Say something: ", what);
+    this._count++;
+    this.sayService.saySomething.emit({ greet: this._greet, count: this.count });
   }
  }

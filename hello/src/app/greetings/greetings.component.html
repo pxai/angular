@@ -2,3 +2,4 @@
 <div *ngFor="let greet of greetings">
     <greet [greet]="greet"></greet>
 </div>
+<div *ngIf="lastGreet !== ''">Clicked greet: {{lastGreet}}</div>
