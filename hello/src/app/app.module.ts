@@ -4,12 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { GreetingsComponent } from './greetings/greetings.component';
 import { GreetComponent } from './greet/greet.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GreetingsComponent,
-    GreetComponent
+    GreetComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule
