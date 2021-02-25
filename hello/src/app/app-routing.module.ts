@@ -10,7 +10,7 @@ const routes: Routes = [
       component: GreetingsComponent
   },
   {
-      path: "about/:year",
+      path: "about",
       component: AboutComponent
   },
   {
