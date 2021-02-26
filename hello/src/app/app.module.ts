@@ -6,6 +6,7 @@ import { GreetingsComponent } from './greetings/greetings.component';
 import { GreetComponent } from './greet/greet.component';
 import { AboutComponent } from './about/about.component';
 import { HelpComponent } from './help/help.component';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { HelpComponent } from './help/help.component';
     GreetingsComponent,
     GreetComponent,
     AboutComponent,
-    HelpComponent
+    HelpComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
