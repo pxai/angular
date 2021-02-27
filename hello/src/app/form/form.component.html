@@ -1,1 +1,18 @@
-<p>form works!</p>
+<div class="wrapper">
+    <form class="form" [formGroup]="form" (submit)="enviarDatos()">
+        <div>
+            <h3>Introducir Saludo</h3>
+        </div>
+       <div>
+        <label  for="">Saludo</label>
+        <input formControlName="greet" class="input-form" type="text">
+       </div>
+       <div>
+        <label for="">Contador</label>
+        <input formControlName="count" class="input-form" type="text">
+       </div>
+       <div>
+        <button [disabled]="form.invalid" class="button">Enviar</button>
+       </div>
+    </form>
+</div>
