@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SayService } from "../say.service";
+import { GreetsService } from '../greets.service';
 
 @Component({
   selector: 'greetings',
@@ -10,12 +11,16 @@ export class GreetingsComponent implements OnInit {
   private _greetings:Array<string> = [];
   private _lastGreet: string = "";
 
-  constructor(private sayService: SayService) { }
+  constructor(private sayService: SayService, private greetsService: GreetsService) { }
 
   ngOnInit(): void {
       this._greetings = ["Hello", "Hola", "Salut"];
       this.sayService.saySomething.subscribe(something => {
           this._lastGreet = something.greet;
+      });
+
+      this.greetsService.addGreet.subscribe(greet => {
+          this._greetings.push(greet.greet);
       });
   }
 

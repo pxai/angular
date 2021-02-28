@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { GreetsService } from '../greets.service';
 
 @Component({
   selector: 'app-form',
@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class FormComponent implements OnInit {
   public form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private greetsService: GreetsService) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -21,5 +21,6 @@ export class FormComponent implements OnInit {
 
   enviarDatos(): any {
     console.log(this.form.value);
+    this.greetsService.addGreet.emit(this.form.value);
   }
 }
