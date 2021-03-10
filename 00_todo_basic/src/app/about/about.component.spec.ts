@@ -24,7 +24,7 @@ describe('AboutComponent', () => {
   });
 
   it('should have an About text', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(AboutComponent);
     const app = fixture.componentInstance;
     const expected: string = "About ToDo app - Pello Xabier Altadill Izura - http://pello.io";
     expect(app.p).toEqual(expected);

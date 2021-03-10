@@ -1,11 +1,24 @@
 language: node_js
 node_js:
-  - "14"
+  - "10"
+
+addons:
+  chrome: stable
+
 cache:
   npm: true
   directories:
-    - "node_modules"
-    - "~/.cache"
-before_script:
+     - ./node_modules
+     - ./hello/node_modules
+
+before_install:
   - cd hello
+
+install:
   - npm install
+
+
+script:
+  - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+  - npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
+
