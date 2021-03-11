@@ -5,6 +5,7 @@ import { AboutComponent } from './about.component';
 describe('AboutComponent', () => {
   let component: AboutComponent;
   let fixture: ComponentFixture<AboutComponent>;
+  let compiled;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -23,10 +24,21 @@ describe('AboutComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have an About text', () => {
-    const fixture = TestBed.createComponent(AboutComponent);
-    const app = fixture.componentInstance;
-    const expected: string = "About ToDo app - Pello Xabier Altadill Izura - http://pello.io";
-    expect(app.p).toEqual(expected);
+  it('should have an About title', () => {
+    const title = fixture.nativeElement.querySelector('b');
+    expect(title.textContent).toEqual("About:");
+  });
+
+  it('should have an about property', () => {
+    const expected: string = "ToDo app - http://pello.io";
+
+    expect(component.about).toEqual(expected);
+  });
+
+  it('should have an about text', () => {
+    const paragraph = fixture.nativeElement.querySelector('p');
+    const expected: string = "About: ToDo app - http://pello.io";
+
+    expect(paragraph.textContent).toEqual(expected);
   });
 });
