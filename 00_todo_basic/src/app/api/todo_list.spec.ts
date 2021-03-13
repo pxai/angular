@@ -1,8 +1,11 @@
 import TodoList from './todo_list';
+import Task from '../models/task';
 
 describe('TodoList', () => {
     let todoList: TodoList;
-    const initial: any[] = ["Learn Angular", "Finish this app"];
+    const initial: any[] = [];
+    const task1: Task = new Task(1, "Test the app", "High", false);
+    const task2: Task = new Task(2, "Finish the app", "Low", false);
 
     beforeEach(()=> {
       todoList = new TodoList();
@@ -12,63 +15,74 @@ describe('TodoList', () => {
         expect(todoList).toBeTruthy();
     });
 
-    it('should return 2 elements', () => {
-        expect(todoList.tasks).toEqual(initial);
+    it('should return 0 elements', () => {
+        expect(todoList.tasks.length).toEqual(0);
     });
 
     it('should add elements', () => {
-        const task: string = "Test the app";
-
         expect(todoList.tasks).toEqual(initial);
 
-        todoList.add(task);
+        todoList.add(task1);
 
-        expect(todoList.tasks).toEqual([...initial, task]);
+        expect(todoList.tasks).toEqual([...initial, task1]);
+
+        todoList.add(task2);
+
+        expect(todoList.tasks).toEqual([...initial, task1, task2]);
     });
 
     describe("remove", ()=> {
       it('should remove elements', () => {
-          expect(todoList.tasks).toEqual(initial);
+          todoList.add(task1);
+          todoList.add(task2);
+
+          expect(todoList.tasks).toEqual([task1, task2]);
 
           todoList.remove(1);
 
-          expect(todoList.tasks).toEqual(["Learn Angular"]);
+          expect(todoList.tasks).toEqual([task2]);
       });
 
-      it('should not remove elements with wrong index', () => {
-          expect(todoList.tasks).toEqual(initial);
+      it('should not remove elements with unexistent ids', () => {
+          todoList.add(task1);
+          todoList.add(task2);
+
+          expect(todoList.tasks).toEqual([task1, task2]);
 
           todoList.remove(10);
 
-          expect(todoList.tasks).toEqual(initial);
-
-          todoList.remove(-1);
-
-          expect(todoList.tasks).toEqual(initial);
+          expect(todoList.tasks).toEqual([task1, task2]);
       });
     });
 
     describe("update", ()=> {
       it('should update element', () => {
-          expect(todoList.tasks).toEqual(initial);
+          todoList.add(task1);
+          todoList.add(task2);
           expect(todoList.tasks.length).toEqual(2);
 
-          todoList.update(1, "It works");
+          const task3: Task = new Task(3, "Call mom", "High", false);
 
-          expect(todoList.tasks[1]).toEqual("It works");
+          todoList.update(1, task3);
+
+          expect(todoList.tasks).toEqual([task1, task3]);
           expect(todoList.tasks.length).toEqual(2);
       });
 
       it('should not remove elements with wrong index', () => {
-          expect(todoList.tasks).toEqual(initial);
+          todoList.add(task1);
+          todoList.add(task2);
+          expect(todoList.tasks.length).toEqual(2);
 
-          todoList.update(10, "It works?");
+          const task3: Task = new Task(3, "Call mom", "High", false);
 
-          expect(todoList.tasks).toEqual(initial);
+          todoList.update(10, task3);
 
-          todoList.update(-1, "It works?");
+          expect(todoList.tasks).toEqual([task1, task2]);
 
-          expect(todoList.tasks).toEqual(initial);
+          todoList.update(-1, task3);
+
+          expect(todoList.tasks).toEqual([task1, task2]);
       });
     });
 });

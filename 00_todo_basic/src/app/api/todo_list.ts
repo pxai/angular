@@ -1,25 +1,25 @@
+import Task from '../models/task';
+
 export default class TodoList {
-    private _tasks: any[] = [];
+    private _tasks: Task[];
 
     constructor () {
-      this._tasks = ["Learn Angular", "Finish this app"];
+      this._tasks = [];
     }
 
     get tasks(): any[] {
       return this._tasks;
     }
 
-    add(task: string) {
+    add(task: Task) {
       this._tasks.push(task);
     }
 
     remove(index: number) {
-      if (index >= 0 && index < this._tasks.length) {
-        this._tasks.splice(index, 1);
-      }
+      this._tasks = this._tasks.filter(task => task.id !== index);
     }
 
-    update(index: number, task) {
+    update(index: number, task: Task) {
       if (index >= 0 && index < this._tasks.length) {
         this._tasks[index] = task;
       }
