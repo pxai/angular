@@ -4,8 +4,8 @@ import Task from '../models/task';
 describe('TodoList', () => {
     let todoList: TodoList;
     const initial: any[] = [];
-    const task1: Task = new Task(1, "Test the app", "High", false);
-    const task2: Task = new Task(2, "Finish the app", "Low", false);
+    const task1: Task = new Task('Test the app', 'High', false, 1);
+    const task2: Task = new Task('Finish the app', 'Low', false, 2);
 
     beforeEach(()=> {
       todoList = new TodoList();
@@ -31,7 +31,7 @@ describe('TodoList', () => {
         expect(todoList.tasks).toEqual([...initial, task1, task2]);
     });
 
-    describe("remove", ()=> {
+    describe('remove', ()=> {
       it('should remove elements', () => {
           todoList.add(task1);
           todoList.add(task2);
@@ -55,13 +55,13 @@ describe('TodoList', () => {
       });
     });
 
-    describe("update", ()=> {
+    describe('update', ()=> {
       it('should update element', () => {
           todoList.add(task1);
           todoList.add(task2);
           expect(todoList.tasks.length).toEqual(2);
 
-          const task3: Task = new Task(3, "Call mom", "High", false);
+          const task3: Task = new Task('Call mom', 'High', false, 2);
 
           todoList.update(1, task3);
 
@@ -74,7 +74,7 @@ describe('TodoList', () => {
           todoList.add(task2);
           expect(todoList.tasks.length).toEqual(2);
 
-          const task3: Task = new Task(3, "Call mom", "High", false);
+          const task3: Task = new Task('Call mom', 'High', false, 3);
 
           todoList.update(10, task3);
 
