@@ -1,8 +1,10 @@
 <form #taskForm="ngForm">
+  <input type="hidden" id="id"
+         [(ngModel)]="task.id" name="id">
   <div>
     <label for="name">Name</label>
     <input type="text" id="name"
-           required
+           required minlength="2"
            [(ngModel)]="task.name" name="name">
   </div>
   <div>

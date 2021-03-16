@@ -13,6 +13,7 @@ export class TaskFormComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    this._task = new Task();
     this._priorities = ['low', 'medium', 'high'];
   }
 

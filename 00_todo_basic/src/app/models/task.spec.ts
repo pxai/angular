@@ -7,6 +7,22 @@ describe('Task model', ()=> {
   const priority: string = "High";
   const done: boolean = false;
 
+  describe('Default values', () => {
+    beforeEach(()=> {
+        task = new Task();
+    });
+
+    it('can create a Task instance', () => {
+        expect(task).toBeTruthy();
+    });
+
+    it('will have default values', () => {
+        expect(task.name).toEqual("");
+        expect(task.priority).toEqual("low");
+        expect(task.done).toEqual(false);
+    });
+  });
+
   describe('All params', () => {
     beforeEach(()=> {
         task = new Task(name, priority, done, id);
