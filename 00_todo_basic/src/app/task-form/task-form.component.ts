@@ -26,6 +26,7 @@ export class TaskFormComponent implements OnInit {
   }
 
   submit() {
+      console.log("Sent form: ", this._task);
       this._submitted = true;
   }
 }

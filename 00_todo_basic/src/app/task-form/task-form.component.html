@@ -1,22 +1,26 @@
 <form #taskForm="ngForm">
   <input type="hidden" id="id"
-         [(ngModel)]="task.id" name="id">
+         [(ngModel)]="task.id" #name="ngModel" name="id">
   <div>
     <label for="name">Name</label>
     <input type="text" id="name"
            required minlength="2"
-           [(ngModel)]="task.name" name="name">
+           #name="ngModel"
+           name="name"
+           [(ngModel)]="task.name" >
   </div>
   <div>
     <label for="done">Done</label>
     <input type="checkbox" id="done"
-           [(ngModel)]="task.done" name="done">
+           #name="ngModel"
+           name="done"
+           [(ngModel)]="task.done">
   </div>
   <div>
     <label for="task">Task</label>
-    <select id="priority" [(ngModel)]="task.priority" required>
+    <select id="priority" #name="ngModel" name="priority"[(ngModel)]="task.priority" required>
       <option *ngFor="let priority of priorities" [value]="priority">{{priority}}</option>
     </select>
   </div>
-  <button type="button" (click)="submit();">Add Task</button>
+  <button type="button" [disabled]="!taskForm.form.valid" (click)="submit();">Add Task</button>
 </form>
