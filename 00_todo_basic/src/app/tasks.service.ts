@@ -5,11 +5,11 @@ import TodoList from './api/todo_list';
   providedIn: 'root'
 })
 export class TasksService {
-  constructor(todoList: TodoList) {
+  constructor(private todoList: TodoList) {
     console.log("Service generated!!");
   }
 
   getAll() {
-    return todoList.tasks;
+    return this.todoList.tasks;
   }
 }

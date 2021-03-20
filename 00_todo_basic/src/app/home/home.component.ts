@@ -8,9 +8,11 @@ import { TasksService } from '../tasks.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(tasksService: TasksService) { }
+  constructor(private tasksService: TasksService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  get tasks() {
+    return this.tasksService.getAll();
   }
-
 }
