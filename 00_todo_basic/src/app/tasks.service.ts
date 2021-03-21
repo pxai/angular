@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import TodoList from './api/todo_list';
+import Task from './models/task';
 
 @Injectable({
   providedIn: 'root'
@@ -11,5 +12,9 @@ export class TasksService {
 
   getAll() {
     return this.todoList.tasks;
+  }
+
+  add(task: Task) {
+    this.todoList.add(task);
   }
 }

@@ -9,6 +9,7 @@ export default class TodoList {
 
     constructor () {
       this._tasks = [];
+      console.log("This is it: TodoList");
     }
 
     get tasks(): any[] {

@@ -8,6 +8,8 @@ import { AboutComponent } from './about/about.component';
 import { FooterComponent } from './footer/footer.component';
 import { TaskFormComponent } from './task-form/task-form.component';
 import { HomeComponent } from './home/home.component';
+import { TasksService } from './tasks.service';
+import TodoList from './api/todo_list';
 
 @NgModule({
   declarations: [
