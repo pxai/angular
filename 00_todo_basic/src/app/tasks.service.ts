@@ -15,6 +15,14 @@ export class TasksService {
   }
 
   add(task: Task) {
-    this.todoList.add(task);
+    this.todoList.add({...task});
+  }
+
+  remove(id: number) {
+    this.todoList.remove(id);
+  }
+
+  update(task: Task) {
+    this.todoList.update(task.id, {...task});
   }
 }

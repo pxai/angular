@@ -20,8 +20,8 @@ export default class TodoList {
       this._tasks.push(task);
     }
 
-    remove(index: number) {
-      this._tasks = this._tasks.filter(task => task.id !== index);
+    remove(id: number) {
+      this._tasks = this._tasks.filter(task => task.id !== id);
     }
 
     update(index: number, task: Task) {
