@@ -1,4 +1,9 @@
 <p>Home works!</p>
 <div *ngFor="let task of tasks">
-  <div>{{task.name}}</div>
+  <div>
+    <div>{{task.name}}</div>
+    <div>
+        <button (click)="remove(task.id)">Delete</button>
+    </div>
+  </div>
 </div>

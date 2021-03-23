@@ -15,4 +15,8 @@ export class HomeComponent implements OnInit {
   get tasks() {
     return this.tasksService.getAll();
   }
+
+  remove(id: number) {
+    return this.tasksService.remove(id);
+  }
 }
