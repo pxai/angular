@@ -17,6 +17,7 @@ export default class TodoList {
     }
 
     add(task: Task) {
+      if (!task.id) { task.id = new Date().getMilliseconds() }
       this._tasks.push(task);
     }
 

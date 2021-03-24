@@ -20,15 +20,24 @@ describe('TodoList', () => {
     });
 
     it('should add elements', () => {
-        expect(todoList.tasks).toEqual(initial);
-
-        todoList.add(task1);
+        todoList.add(task3);
 
         expect(todoList.tasks).toEqual([...initial, task1]);
 
         todoList.add(task2);
 
         expect(todoList.tasks).toEqual([...initial, task1, task2]);
+    });
+
+    it('should add elements with id if it is missing', () => {
+        const task3: Task = new Task('Make it work', 'Low', false);
+        expect(todoList.tasks).toEqual(initial);
+
+        todoList.add(task3);
+
+        expect(todoList.tasks).toEqual([...initial, task3]);
+
+        expect(task3.id).toBeTruthy();
     });
 
     describe('remove', ()=> {
