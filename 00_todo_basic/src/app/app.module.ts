@@ -10,6 +10,7 @@ import { TaskFormComponent } from './task-form/task-form.component';
 import { HomeComponent } from './home/home.component';
 import { TasksService } from './tasks.service';
 import TodoList from './api/todo_list';
+import { UpdateComponent } from './update/update.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import TodoList from './api/todo_list';
     AboutComponent,
     FooterComponent,
     TaskFormComponent,
-    HomeComponent
+    HomeComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
