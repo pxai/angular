@@ -12,7 +12,11 @@ export default class TodoList {
       console.log("This is it: TodoList");
     }
 
-    get tasks(): any[] {
+    task(id: number): Task {
+      return this._tasks.find(task => task.id === id);
+    }
+
+    get tasks(): Task[] {
       return this._tasks;
     }
 

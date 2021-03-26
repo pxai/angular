@@ -1,9 +1,11 @@
 <p>Home works!</p>
+<app-task-form></app-task-form>
 <div *ngFor="let task of tasks">
   <div>
     <div>{{task.name}}</div>
     <div>
         <button (click)="remove(task.id)">Delete</button>
+        <button [routerLink]="['update', task.id]">Update</button>
     </div>
   </div>
 </div>

@@ -3,7 +3,7 @@ import Task from '../models/task';
 
 describe('TodoList', () => {
     let todoList: TodoList;
-    const initial: any[] = [];
+    const initial: Task[] = [];
     const task1: Task = new Task('Test the app', 'High', false, 1);
     const task2: Task = new Task('Finish the app', 'Low', false, 2);
 
@@ -20,7 +20,7 @@ describe('TodoList', () => {
     });
 
     it('should add elements', () => {
-        todoList.add(task3);
+        todoList.add(task1);
 
         expect(todoList.tasks).toEqual([...initial, task1]);
 
@@ -38,6 +38,22 @@ describe('TodoList', () => {
         expect(todoList.tasks).toEqual([...initial, task3]);
 
         expect(task3.id).toBeTruthy();
+    });
+
+    describe('task', ()=> {
+      it('should return specific element', () => {
+          todoList.add(task1);
+          todoList.add(task2);
+
+          expect(todoList.task(2)).toEqual(task2);
+      });
+
+      it('should return undefined if id not found', () => {
+          todoList.add(task1);
+          todoList.add(task2);
+
+          expect(todoList.task(3)).toEqual(undefined);
+      });
     });
 
     describe('remove', ()=> {
