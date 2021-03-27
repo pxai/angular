@@ -10,6 +10,10 @@ export class TasksService {
     console.log("Service generated!!");
   }
 
+  get(id: number): Task {
+    return this.todoList.task(id);
+  }
+
   getAll() {
     return this.todoList.tasks;
   }

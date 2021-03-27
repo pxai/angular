@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import Task from '../models/task';
 import { TasksService } from '../tasks.service';
 
@@ -8,14 +8,16 @@ import { TasksService } from '../tasks.service';
   styleUrls: ['./task-form.component.scss']
 })
 export class TaskFormComponent implements OnInit {
-  private _submitted: boolean;
+  @Input() editTask: Task;
   private _task: Task;
+  private _submitted: boolean;
   private _priorities: string[];
 
   constructor(private tasksService: TasksService) {}
 
   ngOnInit(): void {
-    this._task = new Task();
+    console.log("Edit task? :", this.editTask);
+    this._task = this.editTask || new Task();
     this._priorities = ['low', 'medium', 'high'];
   }
 
