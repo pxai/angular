@@ -16,10 +16,8 @@ export class UpdateComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this._task = this.tasksService.get(params['id']);
-      console.log("Id: ", params['id'], " and: ", this._task);
-    });
+    const id: number = +this.route.snapshot.paramMap.get('id')
+    this._task = this.tasksService.get(id);
   }
 
   get task(): Task {

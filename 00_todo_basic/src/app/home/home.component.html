@@ -5,7 +5,8 @@
     <div>{{task.name}}</div>
     <div>
         <button (click)="remove(task.id)">Delete</button>
-        <button [routerLink]="['update', task.id]">Update</button>
+        <!--button [routerLink]="['/update', task.id]">Update</button-->
+        <button routerLink='/update/{{task.id}}'>Update</button>
     </div>
   </div>
 </div>

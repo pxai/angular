@@ -5,16 +5,18 @@ import { AboutComponent } from './about/about.component';
 import { UpdateComponent } from './update/update.component';
 import { AppComponent } from './app.component';
 
-const routes: Routes = [  {
-      path: "",
+const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {
+      path: 'home',
       component: HomeComponent
   },
   {
-      path: "update/:id",
+      path: 'update/:id',
       component: UpdateComponent
   },
   {
-      path: "about",
+      path: 'about',
       component: AboutComponent
   }
 ];
