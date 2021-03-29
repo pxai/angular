@@ -1,5 +1,5 @@
 <p>Home works!</p>
-<app-task-form></app-task-form>
+<app-task-form [submit]="submit"></app-task-form>
 <div *ngFor="let task of tasks">
   <div>
     <div>{{task.name}}</div>

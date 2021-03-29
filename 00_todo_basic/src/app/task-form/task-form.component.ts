@@ -9,6 +9,7 @@ import { TasksService } from '../tasks.service';
 })
 export class TaskFormComponent implements OnInit {
   @Input() editTask: Task;
+  @Input() submit: (task: Task) => void;
   private _task: Task;
   private _submitted: boolean;
   private _priorities: string[];
@@ -29,9 +30,9 @@ export class TaskFormComponent implements OnInit {
       return this._task;
   }
 
-  submit() {
+  onSubmit() {
       console.log("Sent form: ", this._task);
-      this.tasksService.add(this._task);
+      this.submit(this._task);
       this._submitted = true;
   }
 }

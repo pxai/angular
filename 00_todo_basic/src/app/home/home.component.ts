@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TasksService } from '../tasks.service';
+import Task from '../models/task';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,6 @@ import { TasksService } from '../tasks.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
   constructor(private tasksService: TasksService) { }
 
   ngOnInit(): void { }
@@ -18,5 +18,9 @@ export class HomeComponent implements OnInit {
 
   remove(id: number) {
     return this.tasksService.remove(id);
+  }
+
+  submit(task: Task) {
+    this.tasksService.add(task);
   }
 }
