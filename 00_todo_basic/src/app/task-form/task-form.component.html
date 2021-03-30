@@ -22,5 +22,5 @@
       <option *ngFor="let priority of priorities" [value]="priority">{{priority}}</option>
     </select>
   </div>
-  <button type="button" [disabled]="!taskForm.form.valid" (click)="onSubmit();">Add Task</button>
+  <button type="button" [disabled]="!taskForm.form.valid" (click)="submit();">Add Task</button>
 </form>

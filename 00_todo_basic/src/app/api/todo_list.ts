@@ -29,9 +29,8 @@ export default class TodoList {
       this._tasks = this._tasks.filter(task => task.id !== id);
     }
 
-    update(index: number, task: Task) {
-      if (index >= 0 && index < this._tasks.length) {
-        this._tasks[index] = task;
-      }
+    update(task: Task) {
+      this._tasks = this._tasks.filter(t => t.id !== task.id);
+      this._tasks.push(task);
     }
 }

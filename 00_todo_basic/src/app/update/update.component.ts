@@ -23,4 +23,8 @@ export class UpdateComponent implements OnInit {
   get task(): Task {
       return this._task;
   }
+
+  submit(task: Task) {
+    this.tasksService.update(task);
+  }
 }

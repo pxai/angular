@@ -27,6 +27,6 @@ export class TasksService {
   }
 
   update(task: Task) {
-    this.todoList.update(task.id, {...task});
+    this.todoList.update({...task});
   }
 }
