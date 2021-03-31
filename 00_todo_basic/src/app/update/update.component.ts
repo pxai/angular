@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TasksService } from '../tasks.service';
 import Task from '../models/task';
 
@@ -12,7 +12,8 @@ export class UpdateComponent implements OnInit {
   private _task: Task;
   constructor(
     private tasksService: TasksService,
-    private route: ActivatedRoute
+    private router: Router,
+    private route: ActivatedRoute,
     ) { }
 
   ngOnInit(): void {
@@ -25,6 +26,8 @@ export class UpdateComponent implements OnInit {
   }
 
   submit(task: Task) {
+    console.log("Go update! ", task);
     this.tasksService.update(task);
+    this.router.navigateByUrl('/home');
   }
 }

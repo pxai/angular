@@ -88,26 +88,10 @@ describe('TodoList', () => {
 
           const task3: Task = new Task('Call mom', 'High', false, 2);
 
-          todoList.update(1, task3);
+          todoList.update(task3);
 
           expect(todoList.tasks).toEqual([task1, task3]);
           expect(todoList.tasks.length).toEqual(2);
-      });
-
-      it('should not remove elements with wrong index', () => {
-          todoList.add(task1);
-          todoList.add(task2);
-          expect(todoList.tasks.length).toEqual(2);
-
-          const task3: Task = new Task('Call mom', 'High', false, 3);
-
-          todoList.update(10, task3);
-
-          expect(todoList.tasks).toEqual([task1, task2]);
-
-          todoList.update(-1, task3);
-
-          expect(todoList.tasks).toEqual([task1, task2]);
       });
     });
 });
