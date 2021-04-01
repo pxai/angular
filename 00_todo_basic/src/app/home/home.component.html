@@ -2,10 +2,9 @@
 <app-task-form [onSubmit]="submit"></app-task-form>
 <div *ngFor="let task of tasks">
   <div>
-    <div>{{task.name}}</div>
+    <div>{{task.name}} - {{task.priority}} - Done: {{task.done}}</div>
     <div>
         <button (click)="remove(task.id)">Delete</button>
-        <!--button [routerLink]="['/update', task.id]">Update</button-->
         <button routerLink='/update/{{task.id}}'>Update</button>
     </div>
   </div>
